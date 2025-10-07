@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiKing數位新貴 - 全能數位科技有限公司</title>
+    <meta name="description" content="全能數位科技有限公司，DigiKing數位新貴品牌。電子監控事業部提供雲端智慧監控、AI錄影系統；家電事業部製造液晶電視、變頻冷氣。承襲數十年專業經驗，四心服務承諾。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #334155;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            font-size: 2rem;
+            color: #60a5fa;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #cbd5e1;
+            border: 2px solid #475569;
+        }
+        
+        .btn-outline:hover {
+            background: #475569;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-alt {
+            background: rgba(30, 41, 59, 0.5);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            background: rgba(30, 41, 59, 0.7);
+            transform: translateY(-5px);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: #2563eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        
+        .card p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+        
+        .card ul {
+            list-style: none;
+            color: #cbd5e1;
+        }
+        
+        .card li {
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        /* Process Steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .process-step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            border-top: 1px solid #334155;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: #60a5fa;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            color: #64748b;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    🛡️ DigiKing
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">首頁</a></li>
+                    <li><a href="#services">事業部門</a></li>
+                    <li><a href="#process">服務流程</a></li>
+                    <li><a href="#about">關於我們</a></li>
+                    <li><a href="#contact">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>DigiKing 數位新貴</h1>
+            <div class="subtitle">全能數位科技解決方案</div>
+            <p>承襲數十年專業經驗，從家電維修轉型為全方位數位科技服務商，專精於雲端智慧監控系統、AI人工智慧應用與家電製造</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">立即諮詢</a>
+                <a href="#services" class="btn btn-outline">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">事業部門</h2>
+            <p class="section-subtitle">電子監控事業部與家電事業部，提供全方位的數位科技解決方案</p>
+            
+            <div class="card-grid">
+                <!-- Electronic Surveillance Division -->
+                <div class="card">
+                    <div class="card-icon">🔒</div>
+                    <h3>電子監控事業部</h3>
+                    <p>20年以上經驗工程師團隊，提供專業監控解決方案</p>
+                    <ul>
+                        <li>雲端智慧監視錄影系統</li>
+                        <li>AI智慧型錄影系統/縮時攝影</li>
+                        <li>人臉辨識指紋機</li>
+                        <li>視網膜辨識系統（虹膜）</li>
+                        <li>低軌衛星網路架設</li>
+                    </ul>
+                </div>
+
+                <!-- Home Appliance Division -->
+                <div class="card">
+                    <div class="card-icon">🏠</div>
+                    <h3>家電事業部</h3>
+                    <p>台灣本土製造，品質穩定的家電產品</p>
+                    <ul>
+                        <li>24吋～75吋多媒體液晶電視</li>
+                        <li>4K、聯網型智慧電視</li>
+                        <li>變頻節能冷氣製造安裝</li>
+                        <li>一級節能除濕機</li>
+                        <li>三年保固台灣製造</li>
+                    </ul>
+                </div>
+
+                <!-- Professional Service -->
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>專業服務</h3>
+                    <p>全省服務據點，四心服務承諾</p>
+                    <ul>
+                        <li>品質放心</li>
+                        <li>叫修順心</li>
+                        <li>料件安心</li>
+                        <li>維修開心</li>
+                        <li>0800-555-027免付費專線</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section">
+        <div class="container">
+            <h2 class="section-title">專業服務流程</h2>
+            <p class="section-subtitle">我們採用標準化的專業流程，確保每個項目都能達到最高品質標準</p>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>需求分析</h3>
+                    <p>深入了解客戶需求，進行現場勘查與技術評估</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>方案設計</h3>
+                    <p>量身打造最適合的技術方案與系統架構</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>專業施工</h3>
+                    <p>由認證工程師執行安裝，確保品質與安全</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>維護支援</h3>
+                    <p>提供完整的售後服務與技術支援</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">關於 DigiKing</h2>
+            <p class="section-subtitle">專業、可靠、創新 - 您值得信賴的技術夥伴</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>品牌理念</h3>
+                    <p>以台灣黑熊為品牌代表：台灣特有種代表本土品牌，雄壯體型象徵品質穩定，築巢特性代表永續經營。</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">📅</div>
+                    <h3>公司歷史</h3>
+                    <p>前身為全能速修科技，承襲太尹懷特西屋數十年家電服務經驗，2014年轉型為全能數位科技，2022年成立電子監控事業部。</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>服務承諾</h3>
+                    <p>四心服務：品質放心、叫修順心、料件安心、維修開心。全系列產品保固三年，台灣本土製造生產。</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>專業團隊</h3>
+                    <p>電子監控事業部擁有20年以上經驗的軟硬體工程師團隊，為公務部門及私人機構提供專業服務。</p>
+                </div>
+            </div>
+
+            <!-- Company Details -->
+            <div class="card" style="margin-top: 3rem;">
+                <h3 style="text-align: center; margin-bottom: 2rem;">公司簡介</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="color: #60a5fa; margin-bottom: 1rem;">發展歷程</h4>
+                        <p style="margin-bottom: 1rem;">全能數位科技有限公司，前身為全能速修科技股份有限公司簡稱「速修網」。承襲原太尹懷特西屋公司管理部及服務團隊，在業界已有數十年家電服務維修經驗。</p>
+                        <p style="margin-bottom: 1rem;">2014年為服務更多客戶轉型為全能數位科技有限公司，以服務精神出發，堅守商品品管及堅持品質的態度。成立家用電器事業部，自有品牌DigiKing為太尹西屋高級機種使用品牌。</p>
+                        <p>2022年成立電子監控事業部，招募多位在監控錄影領域中擁有20年以上經驗的軟硬體工程師，為公務部門及私人機構提供設備規畫及專業施工和雲端服務。</p>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #60a5fa; margin-bottom: 1rem;">服務實績</h4>
+                        <p style="margin-bottom: 1rem;">目前已為多處公務部門規劃及安裝，包括台北高等行政法院、國立海洋大學及屏東縣政府等重要機構，以及眾多私人企業客戶。</p>
+                        <p style="margin-bottom: 1rem;">家電產品因配送速度快、安裝容易、低故障率、品質信賴度及服務滿意度，深受所有經銷商及廣大的網路消費者好評。</p>
+                        <div style="background: rgba(51, 65, 85, 0.5); border-radius: 8px; padding: 1rem;">
+                            <h5 style="color: #ffffff; margin-bottom: 0.5rem;">數位之星 LOGO 理念</h5>
+                            <p style="font-size: 0.9rem;">在世界潮流已跨向數位網路化的世代，全能數位科技擁有經驗豐富的工程人員團隊及品質穩定的電子及電化產品，是消費者強而有力的後盾。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">聯絡我們</h2>
+            <p class="section-subtitle">立即聯繫我們，獲得專業的技術諮詢與報價服務</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem;">聯絡資訊</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>總公司電話</strong><br>
+                            02-2338-0500
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>免付費專線</strong><br>
+                            0800-555-027
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>南區服務中心</strong><br>
+                            08-8646-080
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>家電事業部</strong><br>
+                            lgett2001@gmail.com<br>
+                            鍾昌煒 0908-955-259
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>電子事業部</strong><br>
+                            h2204852015@gmail.com<br>
+                            顏百韜 0925-233-812
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>總公司地址</strong><br>
+                            台北市萬華區西園路二段11巷20號
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>南區服務中心</strong><br>
+                            屏東縣南州鄉人和路129號
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem;">服務時間</h3>
+                    <p style="margin-bottom: 0.5rem;">週一至週五：09:00 - 18:00</p>
+                    <p style="margin-bottom: 0.5rem;">週六：09:00 - 12:00</p>
+                    <p style="margin-bottom: 1rem;">週日及國定假日：休息</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.9rem;">統一編號：24781639</p>
+                    <p style="font-size: 0.9rem;">網站：http://www.digiking.com.tw</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo" style="justify-content: flex-start;">
+                        🛡️ DigiKing
+                    </div>
+                    <p style="margin-top: 1rem;">DigiKing 數位新貴 - 全能數位科技解決方案</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>事業部門</h4>
+                    <ul>
+                        <li><a href="#services">電子監控事業部</a></li>
+                        <li><a href="#services">家電事業部</a></li>
+                        <li><a href="#services">專業服務</a></li>
+                        <li><a href="#contact">維修服務</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>公司資訊</h4>
+                    <ul>
+                        <li><a href="#about">關於我們</a></li>
+                        <li><a href="#process">服務流程</a></li>
+                        <li><a href="#contact">聯絡我們</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>聯絡資訊</h4>
+                    <ul>
+                        <li>總公司: 02-2338-0500</li>
+                        <li>免付費: 0800-555-027</li>
+                        <li>南區: 08-8646-080</li>
+                        <li>網站: www.digiking.com.tw</li>
+                        <li>統編: 24781639</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                © 2024 全能數位科技有限公司. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
